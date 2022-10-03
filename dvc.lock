@@ -1,0 +1,10 @@
+schema: '2.0'
+stages:
+  preprocess_data:
+    cmd: python src/data/make_dataset.py data/raw/train.csv data/interim/train.pkl
+      data/interim/target.pkl;
+    deps:
+    - path: data/raw
+      md5: 3139bcea254042a5fba700d9018cd343.dir
+      size: 666024
+      nfiles: 4
