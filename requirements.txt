@@ -1,6 +1,8 @@
 # local package
 -e .
 
+catboost
+
 # external requirements
 click
 Sphinx
