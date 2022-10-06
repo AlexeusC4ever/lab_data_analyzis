@@ -22,7 +22,7 @@ def cast_types(df: pd.DataFrame) -> pd.DataFrame:
     ohe_int_cols = df[cfg.OHE_COLS].select_dtypes('number').columns
     df[ohe_int_cols] = df[ohe_int_cols].astype(np.int8)
 
-    df[cfg.REAL_COLS] = df[cfg.REAL_COLS].astype(np.float32)
+    df[cfg.REAL_COLS[:-1]] = df[cfg.REAL_COLS[:-1]].astype(np.float32)
     return df
 
 

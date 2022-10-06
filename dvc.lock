@@ -2,9 +2,17 @@ schema: '2.0'
 stages:
   preprocess_data:
     cmd: python src/data/make_dataset.py data/raw/train.csv data/interim/train.pkl
-      data/interim/target.pkl;
+      data/interim/target.pkl
     deps:
     - path: data/raw
       md5: 3139bcea254042a5fba700d9018cd343.dir
       size: 666024
       nfiles: 4
+  train_val_split:
+    cmd: python src/data/train_val_split.py data/interim/train.pkl data/interim/target.pkl
+      data/processed
+    deps:
+    - path: data/interim
+      md5: 0d8ea55846b23ab716562a43f268219f.dir
+      size: 82430
+      nfiles: 2

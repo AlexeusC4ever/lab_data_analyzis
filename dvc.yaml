@@ -11,5 +11,5 @@ stages:
       data/processed
     deps:
     - data/interim
-    outs:
-    - data/processed
+    # outs:
+    # - data/processed
