@@ -1,7 +1,15 @@
 stages:
   preprocess_data:
-    cmd: python src/data/make_dataset.py data/raw/train.csv data/interim/train.pkl data/interim/target.pkl #python src/data/make_dataset.py  data/raw/test.csv data/processed/test.pkl
+    cmd: python src/data/make_dataset.py data/raw/train.csv data/interim/train.pkl
+      data/interim/target.pkl                                                                              #python src/data/make_dataset.py  data/raw/test.csv data/processed/test.pkl
     deps:
     - data/raw
     # outs:
     # - data/interim
+  train_val_split:
+    cmd: python src/data/train_val_split.py data/interim/train.pkl data/interim/target.pkl
+      data/processed
+    deps:
+    - data/interim
+    outs:
+    - data/processed
