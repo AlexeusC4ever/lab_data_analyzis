@@ -7,17 +7,18 @@ class TargetEncoder:
     def __init__(self, cat_cols, num_classes=1):
         self.te = [ce.TargetEncoder(drop_invariant=False)] * num_classes
         self.cat_cols = cat_cols
+        self.num_classes = num_classes
         
         
     def fit(self, x, y):
-        for target_num in range(num_classes):
+        for target_num in range(self.num_classes):
             target_col = cfg.TARGET_COLS[target_num]
-            self.te[target_num].fit(x[self.cat_cols], y_train[target_col])
+            self.te[target_num].fit(x[self.cat_cols], y[target_col])
 
         
     def transform(self, x, y=None):
         target_encoded_x = x.copy()
-        for target_num in range(num_classes):
+        for target_num in range(self.num_classes):
             target_col = cfg.TARGET_COLS[target_num]
             encoded_cols = self.te[target_num].transform(x[self.cat_cols])
             
@@ -91,3 +92,4 @@ class empty_column_filler:
 
     def fit_transform(self, x, y=None):
         return self.transform(x)
+       

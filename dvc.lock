@@ -16,3 +16,10 @@ stages:
       md5: fd9d648c7629e41a9c52559b46e67316.dir
       size: 89088
       nfiles: 2
+  feature_generating:
+    cmd: python src\features\build_features.py data/processed
+    deps:
+    - path: data/processed
+      md5: 21966c99e08d78cbadc0f50ec6413f92.dir
+      size: 651202
+      nfiles: 8

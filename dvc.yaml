@@ -17,3 +17,7 @@ stages:
     cmd: python src\features\build_features.py data/processed
     deps:
     - data/processed
+  train_models:
+    cmd: python src/models/train_model.py data/processed/ src/models/
+    deps:
+    - /src/features

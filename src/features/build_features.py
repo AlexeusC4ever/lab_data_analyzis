@@ -7,7 +7,7 @@ import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 import src.config as cfg
-from src.utils import save_as_pickle, load_as_pickle
+from src.utils import save_as_pickle, load_as_pickle, save_model_as_pickle
 from src.config import (path_to_splitted_train_data,
                 path_to_splitted_train_data_target,
                 path_to_splitted_val_data,
@@ -37,11 +37,14 @@ def main(output_dir):
     x_train = ecf.fit_transform(x_train)
     x_val = ecf.fit_transform(x_val)
     
-    # x_train_t_encoded = te.fit(x_train, y_train)
-    # x_val_t_encoded = te.transform(x_val)
+    x_train_t_encoded = te.fit_transform(x_train, y_train)
+    x_val_t_encoded = te.transform(x_val)
     
-    save_as_pickle(x_train, output_dir + '/featured_train_data.pkl')
-    save_as_pickle(x_val, output_dir + '/featured_val_data.pkl')
+    save_as_pickle(x_train, output_dir + cfg.name_of_featured_train_data)
+    save_as_pickle(x_val, output_dir + cfg.name_of_featured_val_data)
+    save_as_pickle(x_train_t_encoded, output_dir + cfg.name_of_featured_t_encoded_train_data)
+    save_as_pickle(x_val_t_encoded, output_dir + cfg.name_of_featured_t_encoded_val_data)
+    save_model_as_pickle(te, path_to_target_encoder)
     
 
 

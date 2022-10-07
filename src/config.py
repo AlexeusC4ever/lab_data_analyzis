@@ -24,3 +24,15 @@ path_to_splitted_train_data = 'data/processed/train.pkl'
 path_to_splitted_train_data_target = 'data/processed/train_target.pkl'
 path_to_splitted_val_data = 'data/processed/val.pkl'
 path_to_splitted_val_data_target = 'data/processed/val_target.pkl'
+
+name_of_featured_train_data = '/featured_train_data.pkl'
+name_of_featured_val_data = '/featured_val_data.pkl'
+name_of_featured_t_encoded_train_data = '/featured_train_data_t_encoded.pkl'
+name_of_featured_t_encoded_val_data = '/featured_val_data_t_encoded.pkl'
+
+path_to_target_encoder = 'src/models/tar_encoder.pkl'
+
+name_catboost_model = 'catboost_model.pkl'
+name_lr_model = 'lr_model.pkl'
+
+num_classes = 5
