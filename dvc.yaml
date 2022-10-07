@@ -19,5 +19,5 @@ stages:
     - data/processed
   train_models:
     cmd: python src/models/train_model.py data/processed/ src/models/
-    deps:
-    - /src/features
+    # deps:
+    # - /src/features

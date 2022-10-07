@@ -23,3 +23,5 @@ stages:
       md5: 21966c99e08d78cbadc0f50ec6413f92.dir
       size: 651202
       nfiles: 8
+  train_models:
+    cmd: python src/models/train_model.py data/processed/ src/models/
