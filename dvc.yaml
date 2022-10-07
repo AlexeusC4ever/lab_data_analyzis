@@ -13,3 +13,7 @@ stages:
     - data/interim
     # outs:
     # - data/processed
+  feature_generating:
+    cmd: python src\features\build_features.py data/processed
+    deps:
+    - data/processed

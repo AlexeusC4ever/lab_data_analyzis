@@ -19,3 +19,8 @@ OHE_COLS = [
     'Спорт, клубы', 'Религия, клубы'
 ]
 REAL_COLS = ['Возраст курения', 'Сигарет в день', 'Возраст алког', 'Частота пасс кур']
+
+path_to_splitted_train_data = 'data/processed/train.pkl'
+path_to_splitted_train_data_target = 'data/processed/train_target.pkl'
+path_to_splitted_val_data = 'data/processed/val.pkl'
+path_to_splitted_val_data_target = 'data/processed/val_target.pkl'
