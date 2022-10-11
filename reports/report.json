@@ -1,0 +1,8 @@
+{
+    "catboost_avg_recall": 0.40096618357487923,
+    "catboost_avg_prec": 0.7094017094017094,
+    "catboost_roc_auc": 0.683276614054646,
+    "RFC_avg_recall": 0.3671497584541063,
+    "RFC_avg_prec": 0.6551724137931034,
+    "RFC_roc_auc": 0.663331964247296
+}

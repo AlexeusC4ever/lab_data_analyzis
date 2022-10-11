@@ -21,3 +21,9 @@ stages:
     cmd: python src/models/train_model.py data/processed/ models/
     # deps:
     # - /src/features
+  creating_pipelines:
+    cmd: python src\models\create_pipelines.py models/ models/
+    deps:
+    - models/
+  eval_models_print_graphs:
+    cmd: python src/evaluate.py

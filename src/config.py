@@ -32,7 +32,11 @@ name_of_featured_t_encoded_val_data = '/featured_val_data_t_encoded.pkl'
 
 path_to_target_encoder = 'src/models/tar_encoder.pkl'
 
+path_to_models = 'models/'
 name_catboost_model = 'catboost_model.pkl'
 name_lr_model = 'lr_model.pkl'
+
+name_catboost_pipeline = 'catboost_pipline.pkl'
+name_RFC_pipeline = 'RFC_pipeline.pkl'
 
 num_classes = 5
