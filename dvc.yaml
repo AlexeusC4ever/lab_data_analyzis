@@ -27,3 +27,9 @@ stages:
     - models/
   eval_models_print_graphs:
     cmd: python src/evaluate.py
+
+  model_predict:
+    cmd: python src/models/predict_model.py data/raw/test.csv data/predictions.csv
+      models/catboost_model.pkl
+    deps:
+    - data/raw

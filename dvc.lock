@@ -29,8 +29,16 @@ stages:
     cmd: python src\models\create_pipelines.py models/ models/
     deps:
     - path: models/
-      md5: 848ca48b589b277169a4f6ff7bf53a36.dir
-      size: 22592493
+      md5: 5b146892b2483fedc7521301ab560496.dir
+      size: 25919225
       nfiles: 5
   eval_models_print_graphs:
     cmd: python src/evaluate.py
+  model_predict:
+    cmd: python src/models/predict_model.py data/raw/test.csv data/predictions.csv
+      models/catboost_model.pkl
+    deps:
+    - path: data/raw
+      md5: 3139bcea254042a5fba700d9018cd343.dir
+      size: 666024
+      nfiles: 4

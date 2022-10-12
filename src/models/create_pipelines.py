@@ -50,6 +50,7 @@ def main(input_dir, output_dir='src/models/'):
     
     RFC_pipeline.fit(x_train, y_train)
     RFC_pipeline['model'].estimator.fit(x_train_t_encoded, y_train)
+    catboost_pipeline.fit(x_train, y_train)
     
     save_model_as_pickle(catboost_pipeline, output_dir + cfg.name_catboost_pipeline)
     save_model_as_pickle(RFC_pipeline, output_dir + cfg.name_RFC_pipeline)

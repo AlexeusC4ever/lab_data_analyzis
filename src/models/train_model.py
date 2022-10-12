@@ -75,6 +75,7 @@ def main(input_dir, output_dir='src/models/'):
     grid.fit(x_train, y_train)
     
     catboost_model = catboost.CatBoostClassifier(cat_features=cat_idx, loss_function='MultiLogloss', verbose=100, **grid.best_params_)
+    catboost_model.fit(x_train, y_train)
 
     for i in max_depth_values:
         rfC = MultiOutputClassifier(RandomForestClassifier(max_depth = i))
