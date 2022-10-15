@@ -8,6 +8,11 @@ stages:
       md5: 3139bcea254042a5fba700d9018cd343.dir
       size: 666024
       nfiles: 4
+    outs:
+    - path: data/interim
+      md5: fd9d648c7629e41a9c52559b46e67316.dir
+      size: 89088
+      nfiles: 2
   train_val_split:
     cmd: python src/data/train_val_split.py data/interim/train.pkl data/interim/target.pkl
       data/processed
@@ -16,12 +21,17 @@ stages:
       md5: fd9d648c7629e41a9c52559b46e67316.dir
       size: 89088
       nfiles: 2
+    outs:
+    - path: data/processed
+      md5: 8a4c298685cc67e7cd6928ae3797e136.dir
+      size: 657820
+      nfiles: 8
   feature_generating:
     cmd: python src\features\build_features.py data/processed
     deps:
     - path: data/processed
-      md5: 21966c99e08d78cbadc0f50ec6413f92.dir
-      size: 651202
+      md5: e4a0d7c86aebbd112956d82f3674f682.dir
+      size: 657820
       nfiles: 8
   train_models:
     cmd: python src/models/train_model.py data/processed/ models/

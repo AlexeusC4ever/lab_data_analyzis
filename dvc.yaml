@@ -1,26 +1,26 @@
 stages:
   preprocess_data:
     cmd: python src/data/make_dataset.py data/raw/train.csv data/interim/train.pkl
-      data/interim/target.pkl                                                                              #python src/data/make_dataset.py  data/raw/test.csv data/processed/test.pkl
+      data/interim/target.pkl
     deps:
     - data/raw
-    # outs:
-    # - data/interim
+    outs:
+    - data/interim:
+        persist: true
   train_val_split:
     cmd: python src/data/train_val_split.py data/interim/train.pkl data/interim/target.pkl
       data/processed
     deps:
     - data/interim
-    # outs:
-    # - data/processed
+    outs:
+    - data/processed:
+        persist: true
   feature_generating:
     cmd: python src\features\build_features.py data/processed
     deps:
     - data/processed
   train_models:
     cmd: python src/models/train_model.py data/processed/ models/
-    # deps:
-    # - /src/features
   creating_pipelines:
     cmd: python src\models\create_pipelines.py models/ models/
     deps:
